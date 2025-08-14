@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sebastian Casalderrey</title>
+  <style>
+    /* Reset & base */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      color: #f5f5f5;
+      background: radial-gradient(circle at top left, #1a1a1a, #000000);
+      line-height: 1.5;
+      scroll-behavior: smooth;
+      font-size: 90%; /* Slight zoom out */
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* Fade-in animation */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* Header / Intro */
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 1rem;
+    }
+    header h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      color: #fff;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      opacity: 0.8;
+    }
+
+    /* Sticky Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      background: rgba(0,0,0,0.8);
+      padding: 1rem 0;
+      backdrop-filter: blur(5px);
+      font-size: 1rem;
+      z-index: 100;
+    }
+    nav a:hover { opacity: 0.7; }
+
+    /* Projects Section */
+    #projects {
+      padding: 3rem 1rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .project {
+      margin-bottom: 2.5rem;
+    }
+    .project img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      transition: transform 0.4s ease;
+    }
+    .project img:hover {
+      transform: scale(1.03);
+    }
+    .project h3 {
+      margin: 1rem 0 0.5rem;
+      font-size: 1.8rem;
+      color: #fff;
+    }
+    .project p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+
+    /* About & Contact Sections */
+    section {
+      padding: 3rem 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: #fff;
+    }
+    section p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      opacity: 0.85;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.85rem;
+      opacity: 0.6;
+      background-color: #000;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.5rem; }
+      header p { font-size: 1rem; }
+      .project h3 { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Sebastian Casalderrey</h1>
+    <p>Graphic Designer & Video Editor</p>
+  </header>
+
+  <nav>
+    <a href="#projects">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="projects">
+    <div class="project fade-in">
+      <h3>CEK Ronda 3 − Valencia</h3>
+      <img src="MARC MARTIN CEK CHIVA 2025 v2.png" alt="CEK Ronda 3 Valencia poster">
+      <p>Poster design for CEK Ronda 3 in Valencia—bold typography meets dynamic karting visuals.</p>
+    </div>
+    <div class="project fade-in">
+      <h3>RMC Spain Round III − Kotarr</h3>
+      <img src="seba.jpg" alt="RMC Spain Round III Kotarr poster">
+      <p>A high-impact promotional poster with motion blur, vivid colors, and clear event branding.</p>
+    </div>
+    <div class="project fade-in">
+      <h3>FIA European Championship − Rødby</h3>
+      <img src="BENJAMIN MACACH V3 RODBY EURO.jpg" alt="FIA European Championship Rødby poster">
+      <p>Powerful event poster blending portrait and action photography with a warm, sunset palette.</p>
+    </div>
+  </section>
+
+  <section id="about" class="fade-in">
+    <h2>About Me</h2>
+    <p>I’m Sebastian Casalderrey, a graphic designer and video editor passionate about creating storytelling visuals. My expertise spans branding, motion design, identity, and event promotion. I strive to design work that is visually striking and conceptually strong—using tools like Photoshop, Illustrator, Premiere Pro, and After Effects to deliver both aesthetic finesse and communicative clarity.</p>
+  </section>
+
+  <section id="contact" class="fade-in">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:sebyvfx96@gmail.com">sebyvfx96@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/sebastian" target="_blank">My LinkedIn</a></p>
+  </section>
+
+  <footer>
+    &copy; 2025 Sebastian Casalderrey. All rights reserved.
+  </footer>
+
+  <script>
+    // Fade-in on scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    faders.forEach(fader => observer.observe(fader));
+  </script>
+</body>
+</html>
